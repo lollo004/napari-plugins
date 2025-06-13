@@ -1,0 +1,22 @@
+name: teeth-landmarks
+contributions:
+  commands:
+    - id: teeth-landmarks.add_points
+      title: Draw 3D points from JSON
+      python_name: teeth_landmarks:add_landmarks_layer
+  widgets:
+    - command: teeth-landmarks.add_points
+      display_name: Add Points
+      autogenerate: true
+
+name: napari-teeth-landmarks
+display_name: Teeth Landmarks
+contributions:
+  readers:
+    - command: napari-teeth-landmarks.get_reader
+      filename_patterns: ['*.json']
+      accepts_directories: false
+  commands:
+    - id: napari-teeth-landmarks.get_reader
+      python_name: napari_teeth_landmarks._reader:napari_get_reader
+      title: Load teeth landmarks from JSON
